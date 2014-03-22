@@ -36,8 +36,6 @@ License
 -------
 MIT.
 (Before version 0.5.0, the code used a custom permissive license.)
-You can redistribute and use in your commercial or non-commercial projects all of this code. No guarantee is expressed or implied.
-If you redistribute the code, license notices and the name of the original author (if contained in the code) must be preserved.
 
 ## Contact
 
