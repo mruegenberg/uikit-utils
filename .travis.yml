@@ -6,3 +6,5 @@ script: pod lib lint
 
 before_install:
   - gem install cocoapods -v '0.29.0'
+  - pod repo remove master
+  - pod setup
