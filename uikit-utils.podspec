@@ -24,5 +24,5 @@ Pod::Spec.new do |s|
   s.resources = "Resources/*.png"
 
   s.framework  = 'UIKit'
-  s.dependency 'ios-versioncheck'
+  s.dependency 'ios-versioncheck', '~> 1.0.1'
 end
