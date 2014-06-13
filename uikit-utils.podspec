@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "uikit-utils"
-  s.version      = "0.5.0"
+  s.version      = "0.5.1"
   s.summary      = "Utilities for UIKit"
 
   s.description  = <<-DESC
@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Marcel Ruegenberg" => "github@dustlab.com" }
 
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '5.1'
   s.requires_arc = true
 
-  s.source       = { :git => "https://github.com/mruegenberg/uikit-utils.git", :tag => "0.5.0" }
+  s.source       = { :git => "https://github.com/mruegenberg/uikit-utils.git", :tag => "0.5.1" }
 
   s.source_files = 'Classes/**/*.{h,m}'
 
