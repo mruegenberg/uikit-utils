@@ -38,10 +38,26 @@
             [self.tintColor setFill];
             CGContextFillRoundedRect(c, r, 7);
             CGContextSetBlendMode(c, kCGBlendModeClear);
-            [self.titleLabel.text drawInRect:self.titleLabel.frame
-                                    withFont:self.titleLabel.font
-                               lineBreakMode:self.titleLabel.lineBreakMode
-                                   alignment:self.titleLabel.textAlignment];
+            if ([self.titleLabel.text respondsToSelector:@selector(drawWithRect:options:attributes:context:)]) {
+                NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                paragraphStyle.lineBreakMode = self.titleLabel.lineBreakMode;
+                paragraphStyle.alignment = self.titleLabel.textAlignment;
+                NSDictionary *attributes = @{NSFontAttributeName: self.titleLabel.font,
+                                             NSParagraphStyleAttributeName: [paragraphStyle copy]
+                                             };
+                [self.titleLabel.text drawWithRect:self.titleLabel.frame
+                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                        attributes:attributes
+                                           context:[[NSStringDrawingContext alloc] init]];
+            } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                [self.titleLabel.text drawInRect:self.titleLabel.frame
+                                        withFont:self.titleLabel.font
+                                   lineBreakMode:self.titleLabel.lineBreakMode
+                                       alignment:self.titleLabel.textAlignment];
+#pragma clang diagnostic pop
+            }
             self.titleLabel.hidden = YES;
         }
         else {
